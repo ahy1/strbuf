@@ -10,8 +10,8 @@ typedef struct {
 	size_t capacity;
 } STRBUF;
 
-STRBUF *sballoc(size_t size);
-STRBUF *sbrealloc(STRBUF *sb, size_t size);
+STRBUF *sballoc(size_t capacity);
+STRBUF *sbrealloc(STRBUF *sb, size_t capacity);
 int sbfree(STRBUF *sb);
 STRBUF *sbexpand(STRBUF *sb, size_t needed_capacity);
 int sbcat(STRBUF *sb, const char *str);

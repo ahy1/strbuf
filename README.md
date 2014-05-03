@@ -13,20 +13,20 @@ Just add strbuf.c to your project file / Makefile and include strbuf.h where nee
 
 ## Functions
 
-### STRBUF *sballoc(size_t size)
+### STRBUF *sballoc(size_t capacity)
 
 Create a new string buffer.
 
-* _sb_ - Initial buffer capacity
+* _capacity_ - Initial buffer capacity
 
 Return: A new string buffer handle (to be freed with _sbfree_)
 
-### STRBUF *sbrealloc(STRBUF *sb, size_t size)
+### STRBUF *sbrealloc(STRBUF *sb, size_t capacity)
 
 Resize a string buffer.
 
 * _sb_ - String buffer handle
-* _size_ - New size of string buffer
+* _capacity_ - New size of string buffer
 
 Return: The handle of the reallocated string buffer, og _NULL_ for error
 

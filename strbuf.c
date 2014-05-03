@@ -5,33 +5,33 @@
 
 #include "strbuf.h"
 
-STRBUF *sballoc(size_t size)
+STRBUF *sballoc(size_t capacity)
 {
 	STRBUF *sb;
 
 	if (!(sb=(STRBUF *)malloc(sizeof *sb))) return NULL;
-	if (!(sb->addr=(char *)malloc(size))) {
+	if (!(sb->addr=(char *)malloc(capacity))) {
 		free(sb);
 		return NULL;
 	}
 
-	sb->capacity=size;
-	if (size>0) *sb->addr='\0';
+	sb->capacity=capacity;
+	if (capacity>0) *sb->addr='\0';
 	sb->ix=0;
 
 	return sb;
 }
 
-STRBUF *sbrealloc(STRBUF *sb, size_t size)
+STRBUF *sbrealloc(STRBUF *sb, size_t capacity)
 {
 	char *oldaddr=sb->addr;
 
-	if (!(sb->addr=realloc(sb->addr, size))) {
+	if (!(sb->addr=realloc(sb->addr, capacity))) {
 		sb->addr=oldaddr;
 		return NULL;
 	}
 
-	sb->capacity=size;
+	sb->capacity=capacity;
 
 	return sb;
 }
