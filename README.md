@@ -15,7 +15,9 @@ Just add strbuf.c to your project file / Makefile and include strbuf.h where nee
 
 ### STRBUF *sballoc(size_t size)
 
-Create a new string buffer, initially of _size_ capacity.
+Create a new string buffer.
+
+* _sb_ - Initial buffer capacity
 
 Return: A new string buffer handle (to be freed with _sbfree_)
 
@@ -36,7 +38,7 @@ Release all allocations related to a string buffer.
 
 Return: 0 => OK, -1 => Error 
 
-### STRBUF *sbexpand(STRBUF *sb, size_t needed_capacity);
+### STRBUF *sbexpand(STRBUF *sb, size_t needed_capacity)
 
 Make sure the capacity of a string buffer is at least _needed_capacity_.
 
@@ -45,7 +47,7 @@ Make sure the capacity of a string buffer is at least _needed_capacity_.
 
 Return: The handle of the possibly reallocated string buffer
 
-### int sbcat(STRBUF *sb, const char *str);
+### int sbcat(STRBUF *sb, const char *str)
 
 Append a string to the current string (could be considered a checked _strcat_).
 
@@ -54,7 +56,7 @@ Append a string to the current string (could be considered a checked _strcat_).
 
 Return: 0 => OK, -1 => Error
 
-### int sbput(STRBUF *sb, int ch);
+### int sbput(STRBUF *sb, int ch)
 
 Append a character to the current string.
 
@@ -63,7 +65,7 @@ Append a character to the current string.
 
 Return: _ch_ => OK, -1 => Error
 
-### int sbstop(STRBUF *sb);
+### int sbstop(STRBUF *sb)
 
 Terminate a string, starting a new one. Following calls to _sbcat()_ or _sbput()_ will append to a new string.
 
@@ -71,7 +73,7 @@ Terminate a string, starting a new one. Following calls to _sbcat()_ or _sbput()
 
 Return: 0 => OK, -1 => Error
 
-### size_t sbix(STRBUF *sb);
+### size_t sbix(STRBUF *sb)
 
 Return the current index in the string buffer.
 
@@ -98,7 +100,7 @@ Search for a string in the string buffer.
 
 Return: Index of found string, or (size_t)-1 for error
 
-### const char *sbcstr(STRBUF *sb, size_t ix);
+### const char *sbcstr(STRBUF *sb, size_t ix)
 
 Return a C string.
 
@@ -117,7 +119,7 @@ Write a JSON array containing all strings in the string buffer.
 
 Return: 0 => OK
 
-### int sbwritecsv(STRBUF *sb, size_t ix, int sep, int quote, int (*fn)(const char *));
+### int sbwritecsv(STRBUF *sb, size_t ix, int sep, int quote, int (*fn)(const char *))
 
 Write a CSV array containing all strings in the string buffer.
 
