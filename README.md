@@ -3,7 +3,7 @@
 
 ## Description
 
-*strbuf' is a simple library for creating strings in C.
+**strbuf** is a simple library for creating strings in C.
 
 The strings are stored in a continous buffer, separated by '\0'.
 
