@@ -97,6 +97,8 @@ Search for a string in the string buffer.
 
 * _sb_ - String buffer handle
 * _ix_ - Index to where in the string buffer to start searching
+* _fn_ - String comparison function (should return 0 if equal)
+* _what_ - Which string to search for
 
 Return: Index of found string, or (size_t)-1 for error
 
